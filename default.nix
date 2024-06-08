@@ -1,18 +1,7 @@
-{
-  stdenvNoCC,
-  phpPackages,
-  php,
-}:
-stdenvNoCC.mkDerivation {
-  name = "";
+{ php }:
+php.buildComposerProject {
+  pname = "baikal";
+  version = "0.0.0";
   src = ./.;
-  nativeBuildInputs = [
-    phpPackages.composer
-    php
-  ];
-  buildPhase = "make";
-  installPhase = ''
-    mkdir -p $out
-    cp -r build/baikal/* $out
-  '';
+  vendorHash = "sha256-5zE2VqE/5CSeb40/mAvkbi89u7D4V7Y8yAjy3ydycfo=";
 }
